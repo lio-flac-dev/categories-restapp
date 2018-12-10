@@ -115,7 +115,8 @@ A version of Docker CE and Docker Compose should be installed in order to run th
             "parameter":{"name":"perfume", "slug":"pfm-001", "visible":1}
         }
         ```        
-        Response:
+        
+    Response:
         ```
         {
             "code": "SUCCESS",
@@ -134,8 +135,7 @@ A version of Docker CE and Docker Compose should be installed in order to run th
         {
          "parameter":{"name":"Spicy perfume", "slug":"spicy-pfm-001", "visible":1, "parentCategory":{"id":"0d3114cf-f382-4298-8dd1-b4b4e6e1a3e9"}}
         }
-        `
-
+       `
         Response:
      `
         {
@@ -208,11 +208,11 @@ A version of Docker CE and Docker Compose should be installed in order to run th
             ```
             http://localhost:8080/categoryApi/getCategoryChildren?categoryId=0d3114cf-f382-4298-8dd1-b4b4e6e1a3e9
             ```
+       
        By slug:
-            ```
-            http://localhost:8080/categoryApi/getCategoryChildren?slug=eau-col-001
-            ```       
-       HTTP method: GET
+            `http://localhost:8080/categoryApi/getCategoryChildren?slug=eau-col-001`
+      
+    HTTP method: GET
        
      Header parameters:
              ```
@@ -224,12 +224,13 @@ A version of Docker CE and Docker Compose should be installed in order to run th
              ```
              authorizationToken:eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjYXRlZ29yeVN1YmplY3QiLCJleHAiOjE1NDQzMTU1NjZ9.D-_UsI_YiAWSTKXxAlyDc9aQhOZwP71HZzJC4dyeYM0
              ```
-       For subsequent callings, the client must include the If-None-Match request header with the response header ETag value returned from the server in the previous getting invocation:
-              ```
-              If-None-Match:"075226ef5962ee906f722f6ad191ad265"
-              ```
        
-       Response:
+       For subsequent callings, the client must include the If-None-Match request header with the response header ETag value returned from the server in the previous getting invocation:
+  ```
+        If-None-Match:"075226ef5962ee906f722f6ad191ad265"
+  ```
+         
+   Response:
 ```
        {
            "code": "SUCCESS",

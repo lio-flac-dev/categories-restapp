@@ -1,0 +1,29 @@
+version: '1'
+
+services:
+  mysql-docker:
+    image: mysql:latest
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=cat_database
+      - MYSQL_PASSWORD=root
+
+  redis-docker:
+    image: redis:latest
+    hostname: redis
+      ports:
+        - "6379:6379"
+
+  spring-boot-jpa-docker:
+    image: lio/categories-restapp
+    depends_on:
+      - mysql-docker
+      - redis-docker
+    ports:
+      - "8080:8080"
+    environment:
+      - DATABASE_HOST=mysql-docker
+      - DATABASE_USER=root
+      - DATABASE_PASSWORD=root
+      - DATABASE_NAME=cat_database
+      - DATABASE_PORT=3306

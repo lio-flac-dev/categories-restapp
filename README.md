@@ -137,7 +137,7 @@ A version of Docker CE and Docker Compose should be installed in order to run th
         `
 
         Response:
-        `
+     `
         {
             "code": "SUCCESS",
             "result": {
@@ -151,7 +151,7 @@ A version of Docker CE and Docker Compose should be installed in order to run th
                 "visible": true
             }
         }
-        `
+      `
                 
 3. Getting a category:
     
@@ -184,7 +184,7 @@ A version of Docker CE and Docker Compose should be installed in order to run th
         ```
         
     Response:
-    ```
+ ```
     {
         "code": "SUCCESS",
         "result": {
@@ -200,22 +200,21 @@ A version of Docker CE and Docker Compose should be installed in order to run th
             "visible": true
         }
     }
-    ```
-    
-    If the Resource has not changed on the server, the Response will contain no body and a status code of: 304 - Not Modified
+```
+   If the Resource has not changed on the server, the Response will contain no body and a status code of: 304 - Not Modified
 
-4. Getting the children of a specific category:
-        By categoryId:
+4. Getting the children of a specific category:       
+       By categoryId:
             ```
             http://localhost:8080/categoryApi/getCategoryChildren?categoryId=0d3114cf-f382-4298-8dd1-b4b4e6e1a3e9
-            ```            
+            ```
        By slug:
             ```
             http://localhost:8080/categoryApi/getCategoryChildren?slug=eau-col-001
             ```       
        HTTP method: GET
        
-       Header parameters:
+     Header parameters:
              ```
              Authorization:Basic dXNlcjpmbGFjb25pQDIwMTg=
              ```
@@ -231,7 +230,7 @@ A version of Docker CE and Docker Compose should be installed in order to run th
               ```
        
        Response:
-       ```
+```
        {
            "code": "SUCCESS",
            "result": [
@@ -261,19 +260,19 @@ A version of Docker CE and Docker Compose should be installed in order to run th
                }
            ]
        }
-       ```
+```
        
-    If the Resource has not changed on the server, the Response will contain no body and a status code of: 304 - Not Modified
+   If the Resource has not changed on the server, the Response will contain no body and a status code of: 304 - Not Modified
     
 5. Updating the visibility of a given category:
 
-    ```
+```
     http://localhost:8080/categoryApi/updateVisibility
-    ```
+```
+
+   HTTP method: PATCH
     
-    HTTP method: PATCH
-    
-    Header parameters:
+   Header parameters:
          ```
          Authorization:Basic dXNlcjpmbGFjb25pQDIwMTg=
          ```
@@ -284,14 +283,14 @@ A version of Docker CE and Docker Compose should be installed in order to run th
          authorizationToken:eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjYXRlZ29yeVN1YmplY3QiLCJleHAiOjE1NDQzMTU1NjZ9.D-_UsI_YiAWSTKXxAlyDc9aQhOZwP71HZzJC4dyeYM0
          ```
 
-    Request:
+   Request:
     ```
     {
      "parameter":{"id":"7892955c-8755-4661-bf6b-9acc6b8f2ff4", "slug":"spicy-pfm-001", "visible":0}
     }
     ```
     
-    Response:    
+   Response:    
     ```
     {
         "code": "SUCCESS",

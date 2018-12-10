@@ -109,14 +109,12 @@ A version of Docker CE and Docker Compose should be installed in order to run th
     Passing as parameter, one of the following JSON payloads:
 
     2.1 Category without parent category:        
-        Request:
-        
+        Request:        
         ```
         {
             "parameter":{"name":"perfume", "slug":"pfm-001", "visible":1}
         }
-        ```
-        
+        ```        
         Response:
         ```
         {
@@ -132,14 +130,14 @@ A version of Docker CE and Docker Compose should be installed in order to run th
   
     2.2 Category with a parent category:   
         Request:
-        ```
+        `
         {
          "parameter":{"name":"Spicy perfume", "slug":"spicy-pfm-001", "visible":1, "parentCategory":{"id":"0d3114cf-f382-4298-8dd1-b4b4e6e1a3e9"}}
         }
-        ```
+        `
 
         Response:
-        ```
+        `
         {
             "code": "SUCCESS",
             "result": {
@@ -153,8 +151,8 @@ A version of Docker CE and Docker Compose should be installed in order to run th
                 "visible": true
             }
         }
-        ```
-        
+        `
+                
 3. Getting a category:
     
     By categoryId: 
@@ -206,17 +204,15 @@ A version of Docker CE and Docker Compose should be installed in order to run th
     
     If the Resource has not changed on the server, the Response will contain no body and a status code of: 304 - Not Modified
 
-4. Getting the children of a specific category:       
-       By categoryId:
+4. Getting the children of a specific category:
+        By categoryId:
             ```
             http://localhost:8080/categoryApi/getCategoryChildren?categoryId=0d3114cf-f382-4298-8dd1-b4b4e6e1a3e9
-            ```
-            
+            ```            
        By slug:
             ```
             http://localhost:8080/categoryApi/getCategoryChildren?slug=eau-col-001
-            ```
-       
+            ```       
        HTTP method: GET
        
        Header parameters:

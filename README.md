@@ -224,10 +224,10 @@ A version of Docker CE and Docker Compose should be installed in order to run th
              ```
              authorizationToken:eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjYXRlZ29yeVN1YmplY3QiLCJleHAiOjE1NDQzMTU1NjZ9.D-_UsI_YiAWSTKXxAlyDc9aQhOZwP71HZzJC4dyeYM0
              ```
-       
-       For subsequent callings, the client must include the If-None-Match request header with the response header ETag value returned from the server in the previous getting invocation:
+                    
+     For subsequent callings, the client must include the If-None-Match request header with the response header ETag value returned from the server in the previous getting invocation:
   ```
-        If-None-Match:"075226ef5962ee906f722f6ad191ad265"
+            If-None-Match:"075226ef5962ee906f722f6ad191ad265"
   ```
          
    Response:

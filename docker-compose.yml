@@ -13,7 +13,7 @@ services:
     ports:
       - 6379:6379
   spring-boot-jpa-docker:
-    image: lio/categories-restapp
+    build: .
     depends_on:
       - mysql-docker
       - redis-docker

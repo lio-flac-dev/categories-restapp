@@ -1,7 +1,7 @@
 #This is a Dockerfile for a microservice application 
  
 # Use an official Java 8 runtime as a parent image 
-FROM maven:3.6-jdk-8-alpine
+FROM maven:3.5-jdk-8-alpine
  
 VOLUME /tmp 
  

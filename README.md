@@ -98,14 +98,17 @@ A version of Docker CE and Docker Compose should be installed in order to run th
     Header parameters:
             ```
             Authorization:Basic dXNlcjpmbGFjb25pQDIwMTg=
+            ```
+            ```
             Content-Type:application/json
+            ```
+            ```
             authorizationToken:eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjYXRlZ29yeVN1YmplY3QiLCJleHAiOjE1NDQzMTU1NjZ9.D-_UsI_YiAWSTKXxAlyDc9aQhOZwP71HZzJC4dyeYM0
             ```
     
     Passing as parameter, one of the following JSON payloads:
 
-    2.1 Category without parent category:
-        
+    2.1 Category without parent category:        
         Request:
         
         ```
@@ -127,8 +130,7 @@ A version of Docker CE and Docker Compose should be installed in order to run th
         }
         ```
   
-    2.2 Category with a parent category:
-   
+    2.2 Category with a parent category:   
         Request:
         ```
         {
@@ -168,11 +170,15 @@ A version of Docker CE and Docker Compose should be installed in order to run th
     HTTP method: GET
     
     Header parameters:
-        ```
-        Authorization:Basic dXNlcjpmbGFjb25pQDIwMTg=
-        Content-Type:application/json
-        authorizationToken:eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjYXRlZ29yeVN1YmplY3QiLCJleHAiOjE1NDQzMDgxNTZ9.OvR_YXV5PufRDnQY6gnCTUnyCjpjc6Fwu4Awg2nH-9A
-        ```
+         ```
+         Authorization:Basic dXNlcjpmbGFjb25pQDIwMTg=
+         ```
+         ```
+         Content-Type:application/json
+         ```
+         ```
+         authorizationToken:eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjYXRlZ29yeVN1YmplY3QiLCJleHAiOjE1NDQzMTU1NjZ9.D-_UsI_YiAWSTKXxAlyDc9aQhOZwP71HZzJC4dyeYM0
+         ```
         
      For subsequent callings, the client must include the If-None-Match request header with the response header ETag value returned from the server in the previous getting invocation:
         ```
@@ -214,12 +220,15 @@ A version of Docker CE and Docker Compose should be installed in order to run th
        HTTP method: GET
        
        Header parameters:
-           ```
-           Authorization:Basic dXNlcjpmbGFjb25pQDIwMTg=
-           Content-Type:application/json
-           authorizationToken:eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjYXRlZ29yeVN1YmplY3QiLCJleHAiOjE1NDQzMDgxNTZ9.OvR_YXV5PufRDnQY6gnCTUnyCjpjc6Fwu4Awg2nH-9A
-           ```
-           
+             ```
+             Authorization:Basic dXNlcjpmbGFjb25pQDIwMTg=
+             ```
+             ```
+             Content-Type:application/json
+             ```
+             ```
+             authorizationToken:eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjYXRlZ29yeVN1YmplY3QiLCJleHAiOjE1NDQzMTU1NjZ9.D-_UsI_YiAWSTKXxAlyDc9aQhOZwP71HZzJC4dyeYM0
+             ```
        For subsequent callings, the client must include the If-None-Match request header with the response header ETag value returned from the server in the previous getting invocation:
               ```
               If-None-Match:"075226ef5962ee906f722f6ad191ad265"
@@ -269,11 +278,15 @@ A version of Docker CE and Docker Compose should be installed in order to run th
     HTTP method: PATCH
     
     Header parameters:
-        ```
-        Authorization:Basic dXNlcjpmbGFjb25pQDIwMTg=
-        Content-Type:application/json
-        authorizationToken:eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjYXRlZ29yeVN1YmplY3QiLCJleHAiOjE1NDQzMTU1NjZ9.D-_UsI_YiAWSTKXxAlyDc9aQhOZwP71HZzJC4dyeYM0
-        ```
+         ```
+         Authorization:Basic dXNlcjpmbGFjb25pQDIwMTg=
+         ```
+         ```
+         Content-Type:application/json
+         ```
+         ```
+         authorizationToken:eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjYXRlZ29yeVN1YmplY3QiLCJleHAiOjE1NDQzMTU1NjZ9.D-_UsI_YiAWSTKXxAlyDc9aQhOZwP71HZzJC4dyeYM0
+         ```
 
     Request:
     ```

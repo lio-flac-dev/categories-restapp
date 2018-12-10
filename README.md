@@ -42,7 +42,7 @@ A simple Spring Boot application with MySQL and Redis running inside Docker cont
 
 In order to start the application and run the microservices, you should execute from a command line the following instruction:
 
-`docker-compose up`
+`docker-compose up -d`
 
 You must be inside the directory with the docker-compose.yml file in order to execute the previous Compose command.
 
@@ -61,9 +61,9 @@ A version of Docker CE and Docker Compose should be installed in order to run th
    HTTP method: POST
    
    Passing as parameter:
-   {
+   `{
     "parameter":"categorySubject"
-   }
+   }`
 
    Using BASIC auth with the following credentials:
 
@@ -77,10 +77,10 @@ A version of Docker CE and Docker Compose should be installed in order to run th
 
    After invoking these endpoint you will get something like this:
 
-   {
+   `{
        "code": "SUCCESS",
        "result": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ3ZWF0aGVyU3ViamVjdCIsImV4cCI6MTUzOTU2NzI0OX0.J3Xli1EV-T_cP-nQ_uJbkYGcYJdGINSvlmrwC6cSiHY"
-   }
+   }`
 
 
    You should copy all the result value (this is the generated token) in order to invoke the other secured endpoints.
@@ -92,9 +92,9 @@ A version of Docker CE and Docker Compose should be installed in order to run th
     HTTP method: POST
     
     Header parameters:
-            Authorization:Basic dXNlcjpmbGFjb25pQDIwMTg=
+            `Authorization:Basic dXNlcjpmbGFjb25pQDIwMTg=
             Content-Type:application/json
-            authorizationToken:eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjYXRlZ29yeVN1YmplY3QiLCJleHAiOjE1NDQzMTU1NjZ9.D-_UsI_YiAWSTKXxAlyDc9aQhOZwP71HZzJC4dyeYM0
+            authorizationToken:eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjYXRlZ29yeVN1YmplY3QiLCJleHAiOjE1NDQzMTU1NjZ9.D-_UsI_YiAWSTKXxAlyDc9aQhOZwP71HZzJC4dyeYM0`
     
     Passing as parameter, one of the following JSON payloads:
 
@@ -102,12 +102,12 @@ A version of Docker CE and Docker Compose should be installed in order to run th
         
         Request:
         
-        {
+        `{
             "parameter":{"name":"perfume", "slug":"pfm-001", "visible":1}
-        }
+        }`
         
-        Response
-        {
+        Response:
+        `{
             "code": "SUCCESS",
             "result": {
                 "id": "f35de9a1-524c-4f5b-a9a3-f2beadf758a3",
@@ -115,17 +115,17 @@ A version of Docker CE and Docker Compose should be installed in order to run th
                 "slug": "pfm-001",
                 "visible": true
             }
-        }
+        }`
   
     2.2 Category with a parent category:
    
         Request:
-        {
+        `{
          "parameter":{"name":"Spicy perfume", "slug":"spicy-pfm-001", "visible":1, "parentCategory":{"id":"0d3114cf-f382-4298-8dd1-b4b4e6e1a3e9"}}
-        }
+        }`
 
-        Response
-        {
+        Response:
+        `{
             "code": "SUCCESS",
             "result": {
                 "id": "f35de9a1-524c-4f5b-a9a3-f2beadf758a3",
@@ -137,28 +137,28 @@ A version of Docker CE and Docker Compose should be installed in order to run th
                 },
                 "visible": true
             }
-        }
+        }`
         
 3. Getting a category:
     
     By categoryId: 
-        http://localhost:8080/categoryApi/category?categoryId=0d3114cf-f382-4298-8dd1-b4b4e6e1a3e9
+        `http://localhost:8080/categoryApi/category?categoryId=0d3114cf-f382-4298-8dd1-b4b4e6e1a3e9`
         
     By slug:
-        http://localhost:8080/categoryApi/category?slug=eau-col-001
+        `http://localhost:8080/categoryApi/category?slug=eau-col-001`
     
     HTTP method: GET
     
     Header parameters:
-        Authorization:Basic dXNlcjpmbGFjb25pQDIwMTg=
+        `Authorization:Basic dXNlcjpmbGFjb25pQDIwMTg=
         Content-Type:application/json        
-        authorizationToken:eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjYXRlZ29yeVN1YmplY3QiLCJleHAiOjE1NDQzMDgxNTZ9.OvR_YXV5PufRDnQY6gnCTUnyCjpjc6Fwu4Awg2nH-9A
+        authorizationToken:eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjYXRlZ29yeVN1YmplY3QiLCJleHAiOjE1NDQzMDgxNTZ9.OvR_YXV5PufRDnQY6gnCTUnyCjpjc6Fwu4Awg2nH-9A`
         
      For subsequent callings, the client must include the If-None-Match request header with the response header ETag value returned from the server in the previous getting invocation:
-        If-None-Match:"075226ef5962ee906f722f6ad191ad265"
+        `If-None-Match:"075226ef5962ee906f722f6ad191ad265"`
         
     Response:
-    {
+    `{
         "code": "SUCCESS",
         "result": {
             "id": "0d3114cf-f382-4298-8dd1-b4b4e6e1a3e9",
@@ -172,30 +172,29 @@ A version of Docker CE and Docker Compose should be installed in order to run th
             },
             "visible": true
         }
-    }
+    }`
     
     If the Resource has not changed on the server, the Response will contain no body and a status code of: 304 - Not Modified
 
-4. Getting the children of a specific category:
-       
+4. Getting the children of a specific category:       
        By categoryId:
-            http://localhost:8080/categoryApi/getCategoryChildren?categoryId=0d3114cf-f382-4298-8dd1-b4b4e6e1a3e9
+            `http://localhost:8080/categoryApi/getCategoryChildren?categoryId=0d3114cf-f382-4298-8dd1-b4b4e6e1a3e9`
             
        By slug:
-            http://localhost:8080/categoryApi/getCategoryChildren?slug=eau-col-001
+            `http://localhost:8080/categoryApi/getCategoryChildren?slug=eau-col-001`
        
        HTTP method: GET
        
        Header parameters:
-           Authorization:Basic dXNlcjpmbGFjb25pQDIwMTg=
+           `Authorization:Basic dXNlcjpmbGFjb25pQDIwMTg=
            Content-Type:application/json           
-           authorizationToken:eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjYXRlZ29yeVN1YmplY3QiLCJleHAiOjE1NDQzMDgxNTZ9.OvR_YXV5PufRDnQY6gnCTUnyCjpjc6Fwu4Awg2nH-9A
+           authorizationToken:eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjYXRlZ29yeVN1YmplY3QiLCJleHAiOjE1NDQzMDgxNTZ9.OvR_YXV5PufRDnQY6gnCTUnyCjpjc6Fwu4Awg2nH-9A`
            
        For subsequent callings, the client must include the If-None-Match request header with the response header ETag value returned from the server in the previous getting invocation:
-              If-None-Match:"075226ef5962ee906f722f6ad191ad265"
+              `If-None-Match:"075226ef5962ee906f722f6ad191ad265"`
        
        Response:
-       {
+       `{
            "code": "SUCCESS",
            "result": [
                {
@@ -223,35 +222,35 @@ A version of Docker CE and Docker Compose should be installed in order to run th
                    "visible": true
                }
            ]
-       }
+       }`
        
     If the Resource has not changed on the server, the Response will contain no body and a status code of: 304 - Not Modified
     
 5. Updating the visibility of a given category:
 
-    http://localhost:8080/categoryApi/updateVisibility
+    `http://localhost:8080/categoryApi/updateVisibility`
     
     HTTP method: PATCH
     
     Header parameters:
-        Authorization:Basic dXNlcjpmbGFjb25pQDIwMTg=
+        `Authorization:Basic dXNlcjpmbGFjb25pQDIwMTg=
         Content-Type:application/json
-        authorizationToken:eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjYXRlZ29yeVN1YmplY3QiLCJleHAiOjE1NDQzMTU1NjZ9.D-_UsI_YiAWSTKXxAlyDc9aQhOZwP71HZzJC4dyeYM0
+        authorizationToken:eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjYXRlZ29yeVN1YmplY3QiLCJleHAiOjE1NDQzMTU1NjZ9.D-_UsI_YiAWSTKXxAlyDc9aQhOZwP71HZzJC4dyeYM0`
 
     Request:
-    {
+    `{
      "parameter":{"id":"7892955c-8755-4661-bf6b-9acc6b8f2ff4", "slug":"spicy-pfm-001", "visible":0}
-    }
+    }`
     
     Response:    
-    {
+    `{
         "code": "SUCCESS",
         "result": {
             "id": "7892955c-8755-4661-bf6b-9acc6b8f2ff4",
             "slug": "spicy-pfm-001",
             "visible": false
         }
-    }
+    }`
 
 
 ## More info

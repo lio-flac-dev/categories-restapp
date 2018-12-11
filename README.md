@@ -52,14 +52,21 @@ After this the Categories Microservice REST API (CMRA) will start.
 
 A version of Docker CE and Docker Compose should be installed in order to run the application.
 
+To figure out on which host you can see the application you can run:
+
+    `$ docker-machine ip`
+    
+Now, we know the IP address on which the container host is running, you can use http://[DOCKER_HOST]:8080 
+to invoke the web services, as it is detailed in the following sections.
+
 ### Running the web services
 
 1. To get access to the API, you should get a token in the following endpoint:
 
-   `http://localhost:8080/categoryApi/generateToken`
+   `http://[DOCKER_HOST]:8080/categoryApi/generateToken`
 
    HTTP method: POST
-   
+      
    Passing as parameter:
    ```
    {
@@ -91,7 +98,7 @@ A version of Docker CE and Docker Compose should be installed in order to run th
 
 2. After generating the token, you can create a category by invoking:
 
-   `http://localhost:8080/categoryApi/create`
+   `http://[DOCKER_HOST]:8080/categoryApi/create`
    
     HTTP method: POST
     
@@ -157,12 +164,12 @@ A version of Docker CE and Docker Compose should be installed in order to run th
     
     By categoryId: 
         ```
-        http://localhost:8080/categoryApi/category?categoryId=0d3114cf-f382-4298-8dd1-b4b4e6e1a3e9
+        http://[DOCKER_HOST]:8080/categoryApi/category?categoryId=0d3114cf-f382-4298-8dd1-b4b4e6e1a3e9
         ```
         
     By slug:
         ```
-        http://localhost:8080/categoryApi/category?slug=eau-col-001
+        http://[DOCKER_HOST]:8080/categoryApi/category?slug=eau-col-001
         ```
     
     HTTP method: GET
@@ -206,11 +213,11 @@ A version of Docker CE and Docker Compose should be installed in order to run th
 4. Getting the children of a specific category:       
        By categoryId:
             ```
-            http://localhost:8080/categoryApi/getCategoryChildren?categoryId=0d3114cf-f382-4298-8dd1-b4b4e6e1a3e9
+            http://[DOCKER_HOST]:8080/categoryApi/getCategoryChildren?categoryId=0d3114cf-f382-4298-8dd1-b4b4e6e1a3e9
             ```
        
        By slug:
-            `http://localhost:8080/categoryApi/getCategoryChildren?slug=eau-col-001`
+            `http://[DOCKER_HOST]:8080/categoryApi/getCategoryChildren?slug=eau-col-001`
       
     HTTP method: GET
        
@@ -268,11 +275,11 @@ A version of Docker CE and Docker Compose should be installed in order to run th
 5. Updating the visibility of a given category:
 
 ```
-    http://localhost:8080/categoryApi/updateVisibility
+    http://[DOCKER_HOST]:8080/categoryApi/updateVisibility
 ```
 
    HTTP method: PATCH
-    
+  
    Header parameters:
          ```
          Authorization:Basic dXNlcjpmbGFjb25pQDIwMTg=
@@ -306,7 +313,7 @@ A version of Docker CE and Docker Compose should be installed in order to run th
 
 ## More info
 
-You can check all the functionalities exposed by this API in: `http://localhost:8080/swagger-ui.html`
+You can check all the functionalities exposed by this API in: `http://[DOCKER_HOST]:8080/swagger-ui.html`
 
 ![Categories Microservice REST API (CMRA)](swagger.png "Categories Microservice REST API (CMRA)")
 

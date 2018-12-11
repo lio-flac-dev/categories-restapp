@@ -1,7 +1,9 @@
 package com.flaconi.restapp.controller;
 
 import com.flaconi.restapp.aop.TokenRequired;
-import com.flaconi.restapp.controller.dto.*;
+import com.flaconi.restapp.controller.dto.CategoryDto;
+import com.flaconi.restapp.controller.dto.ServiceRequest;
+import com.flaconi.restapp.controller.dto.ServiceResponse;
 import com.flaconi.restapp.controller.exception.ExceptionHandler;
 import com.flaconi.restapp.model.Category;
 import com.flaconi.restapp.service.CategoryService;
@@ -16,7 +18,6 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
 import java.util.Set;
-import java.util.UUID;
 import java.util.stream.Collectors;
 
 /**

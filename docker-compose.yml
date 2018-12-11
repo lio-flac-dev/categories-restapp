@@ -2,21 +2,24 @@ version: '3.6'
 
 services:
   mysql-docker:
+    restart: always
     image: mysql:latest
     environment:
       - MYSQL_ROOT_PASSWORD=root
       - MYSQL_DATABASE=cat_database
       - MYSQL_PASSWORD=root
-  redis-docker:
+  redis:
+    restart: always
     image: redis:latest
     hostname: redis
     ports:
       - 6379:6379
   spring-boot-jpa-docker:
+    restart: always
     build: .
     depends_on:
+      - redis
       - mysql-docker
-      - redis-docker
     ports:
       - 8080:8080
     environment:
@@ -25,3 +28,5 @@ services:
       - DATABASE_PASSWORD=root
       - DATABASE_NAME=cat_database
       - DATABASE_PORT=3306
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379

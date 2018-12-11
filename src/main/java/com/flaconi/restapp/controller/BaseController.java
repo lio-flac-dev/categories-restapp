@@ -44,7 +44,7 @@ public abstract class BaseController {
             serviceResponse.setResult(result);
             response.setStatus(HttpServletResponse.SC_OK);
             if (cacheable) {
-                response.setHeader(CACHE_CONTROL, "max-age=14400");
+                response.setHeader(CACHE_CONTROL, "max-age=3600");
             }
         }
     }

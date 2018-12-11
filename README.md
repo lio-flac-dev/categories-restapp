@@ -15,7 +15,7 @@ A simple Spring Boot application with MySQL and Redis running inside Docker cont
 - Logging: SL4J was used to decouple from any specific implementation. The underlying logging is provided by Log4J. 
   To avoid any locking with a specific filesystem location, the generated logs are sent to the STDOUT console.
 
-- Exception handling: all the errors and exceptions are gracefully managed.
+- Exception handling: all the errors and exceptions are gracefully managed and mapped to the corresponding HTTP status code.
 
 - Documentation: all the classes are intradocumented (Javadocs) and also the API is exposed via Swagger.
 
@@ -23,10 +23,12 @@ A simple Spring Boot application with MySQL and Redis running inside Docker cont
 
 - No hard coded values. All the config properties are defined in the `application.properties` file
 
-- This application and its dependencias has been totally containerized by using Docker and Docker Compose.
+- This application and its dependencies has been totally containerized by using Docker and Docker Compose.
 
 - Primary key modeling: in order to improve the DB compare performance dramatically, as well as reducing storage, the UUID primary key is modeled in the DB as a BINARY(16). 
   The required conversions between the app (UUID) and the DB (BINARY(16)), are made seamlessly by using MySQL built-in functions BIN_TO_UUID and uuid_to_bin.
+  
+- Test coverage: the main different layer artifacts (controller, service and repository) were tested to validate their proper functionality.
 
 ## Stack
 - Redis
@@ -216,7 +218,7 @@ to invoke the web services, as it is detailed in the following sections.
             http://[DOCKER_HOST]:8080/categoryApi/getCategoryChildren?categoryId=0d3114cf-f382-4298-8dd1-b4b4e6e1a3e9
             ```
        
-       By slug:
+      By slug:
             `http://[DOCKER_HOST]:8080/categoryApi/getCategoryChildren?slug=eau-col-001`
       
     HTTP method: GET
